@@ -55,13 +55,45 @@
 			isa = PBXGroup;
 			children = (
 				3B11EA2B1FBD10420094AFF7 /* AppDelegate.swift */,
-				3B11EA2D1FBD10420094AFF7 /* ViewController.swift */,
-				3B11EA2F1FBD10420094AFF7 /* Main.storyboard */,
-				3B11EA321FBD10420094AFF7 /* Assets.xcassets */,
-				3B11EA341FBD10420094AFF7 /* LaunchScreen.storyboard */,
 				3B11EA371FBD10420094AFF7 /* Info.plist */,
+				3B11EA3F1FBD11370094AFF7 /* view controllers */,
+				3B11EA3E1FBD11020094AFF7 /* views */,
+				3B11EA3D1FBD10F40094AFF7 /* models */,
+				3B11EA401FBD11530094AFF7 /* utils */,
 			);
 			path = Whats_that_McX;
+			sourceTree = "<group>";
+		};
+		3B11EA3D1FBD10F40094AFF7 /* models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		3B11EA3E1FBD11020094AFF7 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				3B11EA341FBD10420094AFF7 /* LaunchScreen.storyboard */,
+				3B11EA321FBD10420094AFF7 /* Assets.xcassets */,
+				3B11EA2F1FBD10420094AFF7 /* Main.storyboard */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		3B11EA3F1FBD11370094AFF7 /* view controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3B11EA2D1FBD10420094AFF7 /* ViewController.swift */,
+			);
+			path = "view controllers";
+			sourceTree = "<group>";
+		};
+		3B11EA401FBD11530094AFF7 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
