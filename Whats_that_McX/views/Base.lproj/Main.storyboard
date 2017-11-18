@@ -13,7 +13,7 @@
         <!--What's that-->
         <scene sceneID="Ooz-Z5-pwd">
             <objects>
-                <viewController id="WRh-J1-dlo" sceneMemberID="viewController">
+                <viewController id="WRh-J1-dlo" customClass="MenuViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="t07-Wi-Cn2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -69,7 +69,7 @@
         <!--Photo Identifier-->
         <scene sceneID="W1s-uu-qz4">
             <objects>
-                <viewController title="Photo Identifier" id="vWq-W4-ZFH" sceneMemberID="viewController">
+                <viewController title="Photo Identifier" id="vWq-W4-ZFH" customClass="PhotoIdentificationViewController" customModule="Whats_that_McX" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DwD-tQ-AYW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -145,56 +145,11 @@
         <!--Detail Information-->
         <scene sceneID="MmY-7I-Rz1">
             <objects>
-                <viewController id="eYJ-MG-eeC" sceneMemberID="viewController">
+                <viewController id="eYJ-MG-eeC" customClass="PhotoDetailsViewController" customModule="Whats_that_McX" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PXS-ap-C4h">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Fvh-0r-cDO">
-                                <rect key="frame" x="0.0" y="64" width="375" height="544"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="dCU-QT-i3k">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="48"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="long test" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D2s-ER-2Uo">
-                                                <rect key="frame" x="0.0" y="0.0" width="187.5" height="48"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <button opaque="NO" contentMode="topRight" ambiguous="YES" contentHorizontalAlignment="right" contentVerticalAlignment="top" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WvI-6b-9Ga">
-                                                <rect key="frame" x="187.5" y="0.0" width="187.5" height="48"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <state key="normal" title="favorite" image="red_heart"/>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                    <textView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" text="test" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="sfc-JS-pRF">
-                                        <rect key="frame" x="0.0" y="48" width="375" height="446"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Sqa-6y-0v7">
-                                        <rect key="frame" x="0.0" y="494" width="375" height="50"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RBk-5l-BgY">
-                                                <rect key="frame" x="0.0" y="0.0" width="187.5" height="50"/>
-                                                <state key="normal" image="wikipedia"/>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gEW-jW-UdV">
-                                                <rect key="frame" x="187.5" y="0.0" width="187.5" height="50"/>
-                                                <state key="normal" image="twitter"/>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                            </stackView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="e3K-Hw-doO" firstAttribute="bottom" secondItem="Fvh-0r-cDO" secondAttribute="bottom" id="srT-Tc-9hT"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="e3K-Hw-doO"/>
                     </view>
                     <toolbarItems/>
@@ -225,9 +180,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="red_heart" width="48" height="48"/>
-        <image name="twitter" width="50" height="50"/>
         <image name="whats_that" width="85" height="85"/>
-        <image name="wikipedia" width="50" height="50"/>
     </resources>
 </document>
