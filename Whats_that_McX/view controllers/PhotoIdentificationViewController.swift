@@ -18,7 +18,7 @@ class PhotoIdentificationViewController: UIViewController, UIImagePickerControll
         // Do any additional setup after loading the view.
     }
 
-    @IBAction func liberary(_ sender: Any) {
+    @IBAction func liberary(_ sender: UIButton) {
         //check the info if allow the album privacy
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
             //initial image picker
@@ -38,6 +38,22 @@ class PhotoIdentificationViewController: UIViewController, UIImagePickerControll
         }
     }
     
+    @IBAction func Camera(_ sender: UIButton) {
+        //check the info if allow the camera privacy
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            let picker = UIImagePickerController()
+            picker.delegate = self
+            picker.allowsEditing = true
+            picker.sourceType = .camera
+            self.present(picker, animated: true, completion: {
+                () -> Void in
+            })
+        }else{
+            print("error when using the camera")
+        }
+        
+    }
+
     //After choose a photo
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         //check the info object
@@ -49,7 +65,7 @@ class PhotoIdentificationViewController: UIViewController, UIImagePickerControll
         image = info[UIImagePickerControllerOriginalImage] as! UIImage
         
         identifyPhoto.image = image
-        //图片控制器退出
+        //exit the image controller
         picker.dismiss(animated: true, completion: {
             () -> Void in
         })
