@@ -1,0 +1,6 @@
+framework module Pods_Whats_that_McX {
+  umbrella header "Pods-Whats_that_McX-umbrella.h"
+
+  export *
+  module * { export * }
+}

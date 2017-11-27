@@ -82,29 +82,32 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9W0-H7-VYE">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="271"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="281"/>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Af3-Vd-dbd">
-                                        <rect key="frame" x="0.0" y="271" width="375" height="60"/>
+                                        <rect key="frame" x="0.0" y="281" width="375" height="40"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nsr-Mp-n9V">
-                                                <rect key="frame" x="0.0" y="0.0" width="187.5" height="60"/>
-                                                <state key="normal" title="Library"/>
-                                                <connections>
-                                                    <action selector="liberary:" destination="vWq-W4-ZFH" eventType="touchUpInside" id="U7j-Xe-Fwm"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="epQ-hj-WwA">
-                                                <rect key="frame" x="187.5" y="0.0" width="187.5" height="60"/>
-                                                <state key="normal" title="Camera"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="epQ-hj-WwA">
+                                                <rect key="frame" x="0.0" y="0.0" width="187.5" height="40"/>
+                                                <state key="normal" image="camera"/>
                                                 <connections>
                                                     <action selector="Camera:" destination="vWq-W4-ZFH" eventType="touchUpInside" id="vX8-Sn-NHi"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nsr-Mp-n9V">
+                                                <rect key="frame" x="187.5" y="0.0" width="187.5" height="40"/>
+                                                <state key="normal" image="photo_library"/>
+                                                <connections>
+                                                    <action selector="liberary:" destination="vWq-W4-ZFH" eventType="touchUpInside" id="U7j-Xe-Fwm"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="jvg-5Y-44g"/>
+                                        </constraints>
                                     </stackView>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Kua-eT-VDe">
-                                        <rect key="frame" x="0.0" y="331" width="375" height="272"/>
+                                        <rect key="frame" x="0.0" y="321" width="375" height="282"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="O1c-Ii-eQV">
@@ -178,7 +181,60 @@
                     <view key="view" contentMode="scaleToFill" id="PXS-ap-C4h">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="GYV-BZ-aRU">
+                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u2I-f2-yKw">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="label text test" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kj4-MZ-3Gd">
+                                                <rect key="frame" x="0.0" y="0.0" width="335" height="40"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OTJ-LZ-m6j">
+                                                <rect key="frame" x="335" y="0.0" width="40" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="40" id="Dxw-at-J5O"/>
+                                                </constraints>
+                                                <state key="normal" image="red_heart" backgroundImage="blank_heart"/>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZCM-xd-HZJ">
+                                        <rect key="frame" x="0.0" y="40" width="375" height="479"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="AHs-Zd-DOk">
+                                        <rect key="frame" x="0.0" y="519" width="375" height="40"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4JX-wS-4o9">
+                                                <rect key="frame" x="0.0" y="0.0" width="187.5" height="40"/>
+                                                <state key="normal" image="twitter"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r5B-T1-cbD">
+                                                <rect key="frame" x="187.5" y="0.0" width="187.5" height="40"/>
+                                                <state key="normal" image="wikipedia"/>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="xly-kY-aug"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="GYV-BZ-aRU" firstAttribute="leading" secondItem="e3K-Hw-doO" secondAttribute="leading" id="2DG-di-5V5"/>
+                            <constraint firstItem="e3K-Hw-doO" firstAttribute="bottom" secondItem="GYV-BZ-aRU" secondAttribute="bottom" id="C0N-kL-MR0"/>
+                            <constraint firstItem="GYV-BZ-aRU" firstAttribute="top" secondItem="e3K-Hw-doO" secondAttribute="top" id="Rkz-e5-ULM"/>
+                            <constraint firstItem="e3K-Hw-doO" firstAttribute="trailing" secondItem="GYV-BZ-aRU" secondAttribute="trailing" id="hJf-Fh-WWU"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="e3K-Hw-doO"/>
                     </view>
                     <toolbarItems/>
@@ -209,6 +265,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="blank_heart" width="40" height="40"/>
+        <image name="camera" width="40" height="40"/>
+        <image name="photo_library" width="40" height="40"/>
+        <image name="red_heart" width="40" height="40"/>
+        <image name="twitter" width="40" height="40"/>
         <image name="whats_that" width="512" height="512"/>
+        <image name="wikipedia" width="40" height="40"/>
     </resources>
 </document>
