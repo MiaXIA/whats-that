@@ -10,4 +10,8 @@ import Foundation
 
 struct GoogleVisionResult {
     let name: String
+    
+    enum CodingKeys: String, CodingKey {
+        case name = "description"
+    }
 }

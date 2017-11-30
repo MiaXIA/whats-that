@@ -14,6 +14,7 @@
 		3B11EA331FBD10420094AFF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B11EA321FBD10420094AFF7 /* Assets.xcassets */; };
 		3B11EA361FBD10420094AFF7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B11EA341FBD10420094AFF7 /* LaunchScreen.storyboard */; };
 		3B593E3B1FCF82C900620AF4 /* GoogleVisionStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B593E3A1FCF82C900620AF4 /* GoogleVisionStructs.swift */; };
+		3B6417391FD0A54A00760F74 /* PersistantList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6417381FD0A54A00760F74 /* PersistantList.swift */; };
 		3B87AC7F1FCCC55000FEF23C /* GoogleVisionAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B87AC7E1FCCC55000FEF23C /* GoogleVisionAPIManager.swift */; };
 		3B87AC811FCCC56000FEF23C /* WikipediaAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B87AC801FCCC56000FEF23C /* WikipediaAPIManager.swift */; };
 		3B87AC831FCCC56F00FEF23C /* PersistanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B87AC821FCCC56F00FEF23C /* PersistanceManager.swift */; };
@@ -35,6 +36,7 @@
 		3B11EA351FBD10420094AFF7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3B11EA371FBD10420094AFF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B593E3A1FCF82C900620AF4 /* GoogleVisionStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleVisionStructs.swift; sourceTree = "<group>"; };
+		3B6417381FD0A54A00760F74 /* PersistantList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistantList.swift; sourceTree = "<group>"; };
 		3B87AC7E1FCCC55000FEF23C /* GoogleVisionAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleVisionAPIManager.swift; sourceTree = "<group>"; };
 		3B87AC801FCCC56000FEF23C /* WikipediaAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikipediaAPIManager.swift; sourceTree = "<group>"; };
 		3B87AC821FCCC56F00FEF23C /* PersistanceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistanceManager.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				3B593E391FCF82AE00620AF4 /* codable */,
 				3BC405531FBFB366001A7CC7 /* WikipediaResult.swift */,
 				3BC405551FBFB375001A7CC7 /* GoogleVisionResult.swift */,
+				3B6417381FD0A54A00760F74 /* PersistantList.swift */,
 			);
 			name = models;
 			path = utils/models;
@@ -297,6 +300,7 @@
 				3B87AC811FCCC56000FEF23C /* WikipediaAPIManager.swift in Sources */,
 				3BC405561FBFB375001A7CC7 /* GoogleVisionResult.swift in Sources */,
 				3B87AC831FCCC56F00FEF23C /* PersistanceManager.swift in Sources */,
+				3B6417391FD0A54A00760F74 /* PersistantList.swift in Sources */,
 				3BC4054E1FBFB317001A7CC7 /* FavoriteListTableViewCell.swift in Sources */,
 				3B593E3B1FCF82C900620AF4 /* GoogleVisionStructs.swift in Sources */,
 				3B11EA2E1FBD10420094AFF7 /* MenuViewController.swift in Sources */,

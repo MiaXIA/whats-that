@@ -23,7 +23,7 @@ class GoogleVisionAPIManager {
     
     var delegate: GoogleVisionResultDelegate?
     
-    func fetchGoogleVisionAPIUsingCodable(image: String) {
+    func fetchGoogleVisionAPIUsingCodable(with imageBase64: String) {
         var googleAPIKey = "AIzaSyDEiEmpi-P2lXHKSRKQd8ff3u26SSiGVj8"
         
         var googleURL: URL {
