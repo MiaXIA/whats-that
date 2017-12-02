@@ -9,8 +9,10 @@
 import UIKit
 import MBProgressHUD
 
-class PhotoIdentificationViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class PhotoIdentificationViewController: UIViewController, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
+    var tableView:UITableView?
+    var results = [GoogleVisionResult]()
     let picker = UIImagePickerController()
     let googleVisionAPIManager = GoogleVisionAPIManager()
     
@@ -50,6 +52,14 @@ class PhotoIdentificationViewController: UIViewController, UIImagePickerControll
         
     }
 
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+}
+
+//Image Processing
+extension PhotoIdentificationViewController {
     //After choose a photo
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
@@ -73,6 +83,30 @@ class PhotoIdentificationViewController: UIViewController, UIImagePickerControll
         return resizedImage!
     }
     
+    //Return data numbers
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        return results.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "googleIdentifyCell", for: indexPath)
+        
+        // Configure the cell...
+        let result = results[indexPath.row]
+        cell.textLabel?.text = "\(result.name)"
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //TODO
+        self.tableView!.deselectRow(at: indexPath, animated: true)
+        
+    }
+}
+
+//networking
+extension PhotoIdentificationViewController {
     func base64EncodeImage(_ image: UIImage) -> String {
         var imagedata = UIImagePNGRepresentation(image)
         
@@ -85,20 +119,38 @@ class PhotoIdentificationViewController: UIViewController, UIImagePickerControll
         
         return imagedata!.base64EncodedString(options: .endLineWithCarriageReturn)
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 }
 
 ////adhere to the LocationFinderDelegate protocol
 extension PhotoIdentificationViewController: GoogleVisionResultDelegate {
     func resultsFound(GoogleVisionResults: [GoogleVisionResult]) {
+        self.results = GoogleVisionResults
         
+        DispatchQueue.main.async {
+            MBProgressHUD.hide(for:self.view, animated: true)
+            self.tableView?.reloadData()
+        }
         
     }
     func resultsNotFound(reason: GoogleVisionAPIManager.FailureReason) {
-        
+        DispatchQueue.main.async {
+            MBProgressHUD.hide(for:self.view, animated: true)
+            
+            let alertController = UIAlertController (title: "Problem identifying image", message: reason.rawValue, preferredStyle: .alert)
+            
+            switch reason {
+            case .networkRequestFailed:
+                let retryAction = UIAlertAction(title: "Retry", style: .default, handler: { (action) in
+                    
+                })
+                let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+                alertController.addAction(retryAction)
+                alertController.addAction(cancelAction)
+            case .badJSONResponse, .noData:
+                let okayAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
+                alertController.addAction(okayAction)
+            }
+            self.present(alertController, animated: true, completion: nil)
+        }
     }
 }

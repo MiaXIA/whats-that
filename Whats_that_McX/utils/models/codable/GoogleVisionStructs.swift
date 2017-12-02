@@ -9,9 +9,14 @@
 import Foundation
 
 struct Root: Codable {
+    let responses: [Responses]
+}
+
+struct Responses: Codable {
     let labelAnnotations: [LabelAnnotations]
 }
 
 struct LabelAnnotations: Codable {
     let description: String
 }
+

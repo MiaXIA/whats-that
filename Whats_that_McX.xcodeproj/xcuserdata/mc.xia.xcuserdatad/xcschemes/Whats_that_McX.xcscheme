@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0910"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "43577FC3FE63D5617C68A08A08CF3F67"
-               BuildableName = "Pods_Whats_that_McX.framework"
-               BlueprintName = "Pods-Whats_that_McX"
-               ReferencedContainer = "container:Pods.xcodeproj">
+               BlueprintIdentifier = "3B11EA271FBD10420094AFF7"
+               BuildableName = "Whats_that_McX.app"
+               BlueprintName = "Whats_that_McX"
+               ReferencedContainer = "container:Whats_that_McX.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -30,6 +30,15 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "3B11EA271FBD10420094AFF7"
+            BuildableName = "Whats_that_McX.app"
+            BlueprintName = "Whats_that_McX"
+            ReferencedContainer = "container:Whats_that_McX.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -44,15 +53,22 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "43577FC3FE63D5617C68A08A08CF3F67"
-            BuildableName = "Pods_Whats_that_McX.framework"
-            BlueprintName = "Pods-Whats_that_McX"
-            ReferencedContainer = "container:Pods.xcodeproj">
+            BlueprintIdentifier = "3B11EA271FBD10420094AFF7"
+            BuildableName = "Whats_that_McX.app"
+            BlueprintName = "Whats_that_McX"
+            ReferencedContainer = "container:Whats_that_McX.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            value = ""
+            isEnabled = "YES">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -62,6 +78,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "3B11EA271FBD10420094AFF7"
+            BuildableName = "Whats_that_McX.app"
+            BlueprintName = "Whats_that_McX"
+            ReferencedContainer = "container:Whats_that_McX.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
