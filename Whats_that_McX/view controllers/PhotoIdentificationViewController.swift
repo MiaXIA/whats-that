@@ -9,9 +9,9 @@
 import UIKit
 import MBProgressHUD
 
-class PhotoIdentificationViewController: UIViewController, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+class PhotoIdentificationViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
-    var tableView:UITableView?
+    @IBOutlet weak var identifyList: UITableView!
     var results = [GoogleVisionResult]()
     let picker = UIImagePickerController()
     let googleVisionAPIManager = GoogleVisionAPIManager()
@@ -24,6 +24,29 @@ class PhotoIdentificationViewController: UIViewController, UITableViewDelegate, 
         // Do any additional setup after loading the view.
         googleVisionAPIManager.delegate = self
         picker.delegate = self
+        self.identifyList.delegate = self
+        self.identifyList.dataSource = self
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        return results.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = identifyList.dequeueReusableCell(withIdentifier: "googleIdentifyCell", for: indexPath)
+        
+        // Configure the cell...
+        let result = results[indexPath.row]
+        cell.textLabel?.text = "\(result.name)"
+        print(result)
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //TODO
+        self.identifyList!.deselectRow(at: indexPath, animated: true)
+        
     }
 
     @IBAction func liberary(_ sender: UIButton) {
@@ -82,27 +105,6 @@ extension PhotoIdentificationViewController {
         UIGraphicsEndImageContext()
         return resizedImage!
     }
-    
-    //Return data numbers
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return results.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "googleIdentifyCell", for: indexPath)
-        
-        // Configure the cell...
-        let result = results[indexPath.row]
-        cell.textLabel?.text = "\(result.name)"
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //TODO
-        self.tableView!.deselectRow(at: indexPath, animated: true)
-        
-    }
 }
 
 //networking
@@ -128,7 +130,7 @@ extension PhotoIdentificationViewController: GoogleVisionResultDelegate {
         
         DispatchQueue.main.async {
             MBProgressHUD.hide(for:self.view, animated: true)
-            self.tableView?.reloadData()
+            self.identifyList.reloadData()
         }
         
     }

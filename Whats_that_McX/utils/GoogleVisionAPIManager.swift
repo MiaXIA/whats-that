@@ -75,11 +75,10 @@ class GoogleVisionAPIManager {
             var googleVisionResults = [GoogleVisionResult]()
             
             
-            let labelAnnotations = rootData.responses
+            let labelAnnotations = rootData.responses[0].labelAnnotations
             for labelAnnotation in labelAnnotations {
-                let googleVisionResult = GoogleVisionResult(name: labelAnnotation.labelAnnotations.description)
+                let googleVisionResult = GoogleVisionResult(name: labelAnnotation.description)
                 googleVisionResults.append(googleVisionResult)
-                print(googleVisionResult)
             }
             
             self.delegate?.resultsFound(GoogleVisionResults: googleVisionResults)

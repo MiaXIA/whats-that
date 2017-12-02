@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -106,16 +107,32 @@
                                             <constraint firstAttribute="height" constant="40" id="jvg-5Y-44g"/>
                                         </constraints>
                                     </stackView>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Kua-eT-VDe">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" sectionIndexMinimumDisplayRowCount="10" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Kua-eT-VDe">
                                         <rect key="frame" x="0.0" y="321" width="375" height="282"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="googledentifyCell" id="O1c-Ii-eQV">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="googleIdentifyCell" id="O1c-Ii-eQV">
                                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
-                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="O1c-Ii-eQV" id="28C-u2-7hd">
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="O1c-Ii-eQV" id="28C-u2-7hd">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cab-Cm-evd">
+                                                            <rect key="frame" x="20" y="9" width="0.0" height="24"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="40" id="xeK-1E-nv2"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="cab-Cm-evd" firstAttribute="centerY" secondItem="28C-u2-7hd" secondAttribute="centerY" id="7kJ-BR-Adp"/>
+                                                        <constraint firstItem="cab-Cm-evd" firstAttribute="leading" secondItem="28C-u2-7hd" secondAttribute="leadingMargin" constant="5" id="FTy-AK-Qt8"/>
+                                                        <constraint firstAttribute="bottomMargin" secondItem="cab-Cm-evd" secondAttribute="bottom" id="X3f-ct-7Om"/>
+                                                    </constraints>
                                                 </tableViewCellContentView>
                                                 <connections>
                                                     <segue destination="eYJ-MG-eeC" kind="show" id="Ygt-sV-zbo"/>
@@ -139,6 +156,7 @@
                         <viewLayoutGuide key="safeArea" id="flS-nH-Mrs"/>
                     </view>
                     <connections>
+                        <outlet property="identifyList" destination="Kua-eT-VDe" id="bon-MI-3fa"/>
                         <outlet property="identifyPhoto" destination="9W0-H7-VYE" id="waf-fs-s9e"/>
                     </connections>
                 </viewController>
