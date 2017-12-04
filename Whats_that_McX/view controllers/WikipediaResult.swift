@@ -7,3 +7,13 @@
 //
 
 import Foundation
+
+struct WikipediaResult {
+    let title: String
+    let extract: String
+    
+    enum CodingKeys: String, CodingKey {
+        case title
+        case extract
+    }
+}

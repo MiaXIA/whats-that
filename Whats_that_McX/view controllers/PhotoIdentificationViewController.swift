@@ -15,7 +15,6 @@ class PhotoIdentificationViewController: UIViewController, UITableViewDelegate, 
     var results = [GoogleVisionResult]()
     let picker = UIImagePickerController()
     let googleVisionAPIManager = GoogleVisionAPIManager()
-    
     @IBOutlet weak var identifyPhoto: UIImageView!
     
     override func viewDidLoad() {
@@ -39,14 +38,7 @@ class PhotoIdentificationViewController: UIViewController, UITableViewDelegate, 
         // Configure the cell...
         let result = results[indexPath.row]
         cell.textLabel?.text = "\(result.name)"
-        print(result)
         return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //TODO
-        self.identifyList!.deselectRow(at: indexPath, animated: true)
-        
     }
 
     @IBAction func liberary(_ sender: UIButton) {
@@ -73,6 +65,13 @@ class PhotoIdentificationViewController: UIViewController, UITableViewDelegate, 
             print("error when using the camera")
         }
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let photoDetailView: PhotoDetailsViewController = segue.destination as! PhotoDetailsViewController
+        
+        let textIndex = identifyList.indexPathForSelectedRow?.row
+        photoDetailView.identifyText = results[textIndex!].name
     }
 
     override func didReceiveMemoryWarning() {
@@ -143,7 +142,7 @@ extension PhotoIdentificationViewController: GoogleVisionResultDelegate {
             switch reason {
             case .networkRequestFailed:
                 let retryAction = UIAlertAction(title: "Retry", style: .default, handler: { (action) in
-                    
+                    //TODO
                 })
                 let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
                 alertController.addAction(retryAction)
