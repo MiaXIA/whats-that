@@ -9,7 +9,7 @@
 import Foundation
 
 protocol WikiDelegate {
-    func wikiFound(wiki:[WikipediaResult])
+    func wikiFound(wiki:WikipediaResult)
     func wikiNotFound(reason: WikipediaAPIManager.FailureReason)
 }
 
@@ -53,18 +53,18 @@ class WikipediaAPIManager {
                 return
             }
             
-//            guard let queryJsonObject = wikiJsonObject["query"] as? [String: Any], let pageJsonObject = wikiJsonObject["pages"] as? [[String: Any]] else {
-//                self.delegate?.wikiNotFound(reason: .badJSONResponse)
-//                return
-//            }
-//
-//            let resultJsonObject = pageJsonObject[0]
-//            let title = resultJsonObject["title"] as? String ?? ""
-//            let extract = resultJsonObject["extract"] as? String ?? ""
-//
-//            let wikiResult = WikipediaResult(title: title, extract: extract)
-//
-//            self.delegate?.wikiFound(wiki: [wikiResult])
+            guard let queryJsonObject = wikiJsonObject["query"] as? [String: Any], let pageJsonObject = queryJsonObject["pages"] as? [String: Any] else {
+                self.delegate?.wikiNotFound(reason: .badJSONResponse)
+                return
+            }
+            
+            let resultJsonObject = pageJsonObject[pageJsonObject.keys.first!] as? [String: Any]
+            let title = resultJsonObject!["title"] as? String ?? ""
+            let extract = resultJsonObject!["extract"] as? String ?? ""
+            
+            let wikiResult = WikipediaResult(title: title, extract: extract)
+            
+            self.delegate?.wikiFound(wiki: wikiResult)
         }
         task.resume()
     }

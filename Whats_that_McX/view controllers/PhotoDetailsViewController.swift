@@ -13,8 +13,10 @@ import SafariServices
 class PhotoDetailsViewController: UIViewController {
     
     @IBOutlet weak var ReceivedText: UILabel!
+    @IBOutlet weak var ExtractText: UILabel!
+    
     var identifyText = String()
-    var wikiResults = [WikipediaResult]()
+    var wikiResult = WikipediaResult(title: "", extract: "")
     let findWiki = WikipediaAPIManager()
     
     override func viewWillAppear(_ animated: Bool) {
@@ -27,8 +29,8 @@ class PhotoDetailsViewController: UIViewController {
         // Do any additional setup after loading the view.
         findWiki.delegate = self
         
-        //MBProgressHUD.showAdded(to: self.view, animated: true)
-        //findWiki.fetchWiki(identifyText: identifyText)
+        MBProgressHUD.showAdded(to: self.view, animated: true)
+        findWiki.fetchWiki(identifyText: identifyText)
     }
 
     //share button activity
@@ -64,11 +66,12 @@ class PhotoDetailsViewController: UIViewController {
 //WikiResult protocol
 extension PhotoDetailsViewController: WikiDelegate {
         
-    func wikiFound(wiki:[WikipediaResult]) {
-        self.wikiResults = wiki
+    func wikiFound(wiki:WikipediaResult) {
+        self.wikiResult = wiki
         
         DispatchQueue.main.async {
             MBProgressHUD.hide(for:self.view, animated: true)
+            self.ExtractText.text = self.wikiResult.extract
         }
     }
     func wikiNotFound(reason: WikipediaAPIManager.FailureReason) {

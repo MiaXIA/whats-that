@@ -15,7 +15,6 @@
 		3B11EA361FBD10420094AFF7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B11EA341FBD10420094AFF7 /* LaunchScreen.storyboard */; };
 		3B593E3B1FCF82C900620AF4 /* GoogleVisionStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B593E3A1FCF82C900620AF4 /* GoogleVisionStructs.swift */; };
 		3B6417391FD0A54A00760F74 /* PersistantList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6417381FD0A54A00760F74 /* PersistantList.swift */; };
-		3B76EDD31FD4C1F5005186B5 /* WikipediaStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B76EDD21FD4C1F5005186B5 /* WikipediaStructs.swift */; };
 		3B87AC7F1FCCC55000FEF23C /* GoogleVisionAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B87AC7E1FCCC55000FEF23C /* GoogleVisionAPIManager.swift */; };
 		3B87AC811FCCC56000FEF23C /* WikipediaAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B87AC801FCCC56000FEF23C /* WikipediaAPIManager.swift */; };
 		3B87AC831FCCC56F00FEF23C /* PersistanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B87AC821FCCC56F00FEF23C /* PersistanceManager.swift */; };
@@ -38,7 +37,6 @@
 		3B11EA371FBD10420094AFF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B593E3A1FCF82C900620AF4 /* GoogleVisionStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleVisionStructs.swift; sourceTree = "<group>"; };
 		3B6417381FD0A54A00760F74 /* PersistantList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistantList.swift; sourceTree = "<group>"; };
-		3B76EDD21FD4C1F5005186B5 /* WikipediaStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikipediaStructs.swift; sourceTree = "<group>"; };
 		3B87AC7E1FCCC55000FEF23C /* GoogleVisionAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleVisionAPIManager.swift; sourceTree = "<group>"; };
 		3B87AC801FCCC56000FEF23C /* WikipediaAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikipediaAPIManager.swift; sourceTree = "<group>"; };
 		3B87AC821FCCC56F00FEF23C /* PersistanceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistanceManager.swift; sourceTree = "<group>"; };
@@ -146,7 +144,6 @@
 			isa = PBXGroup;
 			children = (
 				3B593E3A1FCF82C900620AF4 /* GoogleVisionStructs.swift */,
-				3B76EDD21FD4C1F5005186B5 /* WikipediaStructs.swift */,
 			);
 			path = codable;
 			sourceTree = "<group>";
@@ -309,7 +306,6 @@
 				3B6417391FD0A54A00760F74 /* PersistantList.swift in Sources */,
 				3BC4054E1FBFB317001A7CC7 /* FavoriteListTableViewCell.swift in Sources */,
 				3B593E3B1FCF82C900620AF4 /* GoogleVisionStructs.swift in Sources */,
-				3B76EDD31FD4C1F5005186B5 /* WikipediaStructs.swift in Sources */,
 				3B11EA2E1FBD10420094AFF7 /* MenuViewController.swift in Sources */,
 				3BC4054A1FBFB2E5001A7CC7 /* PhotoIdentificationViewController.swift in Sources */,
 				3B11EA2C1FBD10420094AFF7 /* AppDelegate.swift in Sources */,
