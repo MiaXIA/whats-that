@@ -13,7 +13,7 @@ import SafariServices
 class PhotoDetailsViewController: UIViewController {
     
     @IBOutlet weak var ReceivedText: UILabel!
-    @IBOutlet weak var ExtractText: UILabel!
+    @IBOutlet weak var ExtractText: UITextView!
     
     var identifyText = String()
     var wikiResult = WikipediaResult(title: "", extract: "")
@@ -35,14 +35,15 @@ class PhotoDetailsViewController: UIViewController {
 
     //share button activity
     @IBAction func shareButtonPressed(_ sender: Any) {
-        let textToShare = "Check what I found in my photo using Waht's That: \(identifyText.uppercased())!"
+        let textToShare = "Check what I found in my photo using What's That: \(identifyText.uppercased())!"
         let shareViewController = UIActivityViewController(activityItems: [textToShare], applicationActivities: nil)
         present(shareViewController, animated: true, completion: nil)
     }
     
     //Wiki Safari page
     @IBAction func WikiButtonPressed(_ sender: UIButton) {
-        if let url = URL(string: "https://en.wikipedia.org/wiki/\(identifyText.capitalized)") {
+        let queryText = identifyText.replacingOccurrences(of: " ", with: "_")
+        if let url = URL(string: "https://en.wikipedia.org/wiki/\(queryText.capitalized)") {
             let config = SFSafariViewController.Configuration()
             config.entersReaderIfAvailable = true
             
@@ -71,7 +72,12 @@ extension PhotoDetailsViewController: WikiDelegate {
         
         DispatchQueue.main.async {
             MBProgressHUD.hide(for:self.view, animated: true)
-            self.ExtractText.text = self.wikiResult.extract
+            self.ExtractText.isEditable = false
+            if self.wikiResult.extract.isEmpty {
+                self.ExtractText.text = "Cannot find more information about \(self.wikiResult.title) in Wiki, please search more on Twitter :)"
+            } else {
+                self.ExtractText.text = self.wikiResult.extract
+            }
         }
     }
     func wikiNotFound(reason: WikipediaAPIManager.FailureReason) {

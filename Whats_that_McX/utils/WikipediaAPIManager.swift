@@ -25,6 +25,7 @@ class WikipediaAPIManager {
     
     func fetchWiki(identifyText: String) {
         var urlComponents = URLComponents(string: "https://en.wikipedia.org/w/api.php")!
+        let queryText = identifyText.replacingOccurrences(of: " ", with: "_")
         
         //format=json&action=query&prop=extracts&exintro=&explaintext=&titles=tree
         urlComponents.queryItems = [
@@ -33,7 +34,7 @@ class WikipediaAPIManager {
             URLQueryItem(name: "prop", value: "extracts"),
             URLQueryItem(name: "exintro", value: ""),
             URLQueryItem(name: "explaintext", value: ""),
-            URLQueryItem(name: "titles", value: identifyText)
+            URLQueryItem(name: "titles", value: queryText)
         ]
         
         let url = urlComponents.url!
