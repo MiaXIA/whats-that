@@ -71,7 +71,10 @@ class PhotoIdentificationViewController: UIViewController, UITableViewDelegate, 
         let photoDetailView: PhotoDetailsViewController = segue.destination as! PhotoDetailsViewController
         
         let textIndex = identifyList.indexPathForSelectedRow?.row
+        let image = self.identifyPhoto.image
+        
         photoDetailView.identifyText = results[textIndex!].name
+        photoDetailView.identifyPhoto = image!
     }
 
     override func didReceiveMemoryWarning() {

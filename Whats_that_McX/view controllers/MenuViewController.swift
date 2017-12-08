@@ -8,8 +8,10 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MenuViewController: UIViewController {
 
+    let persistanceManager = PersistanceManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -20,6 +22,14 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "listSegue" {
+            let favorites = persistanceManager.fetchFavorites()
+            let destinationViewController = segue.destination as? FavoriteListTableViewController
+            destinationViewController?.favorites = favorites
+        }
+    }
 
 }
 

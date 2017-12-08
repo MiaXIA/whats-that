@@ -48,7 +48,7 @@
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="hcQ-N8-uai" kind="show" id="cab-yJ-yK0"/>
+                                            <segue destination="QF9-Ox-bvw" kind="show" identifier="listSegue" id="CPk-Eq-Zho"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -164,24 +164,24 @@
             </objects>
             <point key="canvasLocation" x="1221.5999999999999" y="-255.02248875562222"/>
         </scene>
-        <!--Previous Favorite-->
-        <scene sceneID="qBA-2Z-RTV">
+        <!--Favorite List Table View Controller-->
+        <scene sceneID="CTM-Qd-TX4">
             <objects>
-                <tableViewController title="Previous Favorite" id="hcQ-N8-uai" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="85U-k1-GV1">
+                <tableViewController id="QF9-Ox-bvw" customClass="FavoriteListTableViewController" customModule="Whats_that_McX" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="tcD-cw-EyR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="favoriteIdentifierCell" id="NlD-0T-M0N">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="favoriteIdentifierCell" id="LXT-2c-1py" customClass="FavoriteListTableViewCell" customModule="Whats_that_McX" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NlD-0T-M0N" id="ek0-HE-KKK">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LXT-2c-1py" id="Kxo-Ud-vGD">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Test Text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="px6-Tj-rH8">
-                                            <rect key="frame" x="16" y="11" width="133" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c0N-Io-waH">
+                                            <rect key="frame" x="16" y="11" width="42" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -189,17 +189,20 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="titleLabel" destination="c0N-Io-waH" id="qHs-78-geu"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="hcQ-N8-uai" id="neA-QO-MTr"/>
-                            <outlet property="delegate" destination="hcQ-N8-uai" id="0VU-V9-aTe"/>
+                            <outlet property="dataSource" destination="QF9-Ox-bvw" id="Omr-rz-x12"/>
+                            <outlet property="delegate" destination="QF9-Ox-bvw" id="VpF-8i-Wl6"/>
                         </connections>
                     </tableView>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="I2g-Dx-TVT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zea-r3-HwH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1222.5" y="404.5"/>
+            <point key="canvasLocation" x="1221.5999999999999" y="519.49025487256381"/>
         </scene>
         <!--Detail Information-->
         <scene sceneID="MmY-7I-Rz1">
@@ -226,7 +229,10 @@
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="40" id="Dxw-at-J5O"/>
                                                 </constraints>
-                                                <state key="normal" image="red_heart" backgroundImage="blank_heart"/>
+                                                <state key="normal" image="blank_heart" backgroundImage="blank_heart"/>
+                                                <connections>
+                                                    <action selector="favoriteButtonPressed:" destination="eYJ-MG-eeC" eventType="touchUpInside" id="Py5-4d-nhD"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -234,10 +240,10 @@
                                             <constraint firstAttribute="height" constant="40" id="kA5-KZ-6Ru"/>
                                         </constraints>
                                     </stackView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Identify Extract" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="8i1-1b-mDf">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Loading data..." textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="8i1-1b-mDf">
                                         <rect key="frame" x="0.0" y="40" width="375" height="479"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="AHs-Zd-DOk">
@@ -286,6 +292,7 @@
                     <connections>
                         <outlet property="ExtractText" destination="8i1-1b-mDf" id="5rp-I8-HVe"/>
                         <outlet property="ReceivedText" destination="Kj4-MZ-3Gd" id="l3T-YU-A69"/>
+                        <outlet property="favoriteButton" destination="OTJ-LZ-m6j" id="LFX-1q-vri"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XEa-GF-g00" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -342,7 +349,6 @@
         <image name="camera" width="40" height="40"/>
         <image name="initial" width="928" height="704"/>
         <image name="photo_library" width="40" height="40"/>
-        <image name="red_heart" width="40" height="40"/>
         <image name="twitter" width="40" height="40"/>
         <image name="whats_that" width="512" height="512"/>
         <image name="wikipedia" width="40" height="40"/>
