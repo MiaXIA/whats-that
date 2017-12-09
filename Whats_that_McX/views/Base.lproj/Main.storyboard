@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -180,17 +181,43 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c0N-Io-waH">
-                                            <rect key="frame" x="16" y="11" width="42" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="u80-ju-QGq">
+                                            <rect key="frame" x="308.5" y="4" width="46.5" height="35"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="46" id="J2d-gX-2pH"/>
+                                                <constraint firstAttribute="width" secondItem="u80-ju-QGq" secondAttribute="height" multiplier="4:3" id="PoB-oU-7S6"/>
+                                            </constraints>
+                                        </imageView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="7e6-y4-LUz">
+                                            <rect key="frame" x="20" y="0.0" width="53" height="42"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c0N-Io-waH">
+                                                    <rect key="frame" x="0.0" y="0.0" width="53" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rqn-zv-myL">
+                                                    <rect key="frame" x="0.0" y="24" width="53" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="u80-ju-QGq" secondAttribute="bottom" constant="5" id="DJi-8j-iIY"/>
+                                        <constraint firstItem="7e6-y4-LUz" firstAttribute="leading" secondItem="Kxo-Ud-vGD" secondAttribute="leading" constant="20" id="M3w-bL-hKA"/>
+                                        <constraint firstItem="7e6-y4-LUz" firstAttribute="centerY" secondItem="Kxo-Ud-vGD" secondAttribute="centerY" id="rYb-Qt-xHf"/>
+                                        <constraint firstAttribute="trailing" secondItem="u80-ju-QGq" secondAttribute="trailing" constant="20" id="zye-WC-x4n"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="identifyImage" destination="u80-ju-QGq" id="Kj5-Yk-CAy"/>
+                                    <outlet property="locationLabel" destination="rqn-zv-myL" id="alC-kc-yhz"/>
                                     <outlet property="titleLabel" destination="c0N-Io-waH" id="qHs-78-geu"/>
+                                    <segue destination="eYJ-MG-eeC" kind="show" id="fe3-b2-w61"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -353,4 +380,7 @@
         <image name="whats_that" width="512" height="512"/>
         <image name="wikipedia" width="40" height="40"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="fe3-b2-w61"/>
+    </inferredMetricsTieBreakers>
 </document>

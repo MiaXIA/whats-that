@@ -22,14 +22,5 @@ class MenuViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "listSegue" {
-            let favorites = persistanceManager.fetchFavorites()
-            let destinationViewController = segue.destination as? FavoriteListTableViewController
-            destinationViewController?.favorites = favorites
-        }
-    }
-
 }
 

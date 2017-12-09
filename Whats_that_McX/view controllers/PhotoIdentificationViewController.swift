@@ -75,6 +75,7 @@ class PhotoIdentificationViewController: UIViewController, UITableViewDelegate, 
         
         photoDetailView.identifyText = results[textIndex!].name
         photoDetailView.identifyPhoto = image!
+        photoDetailView.selected = false
     }
 
     override func didReceiveMemoryWarning() {

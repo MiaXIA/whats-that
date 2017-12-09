@@ -10,35 +10,40 @@ import Foundation
 
 class Favorite: NSObject {
     let name: String
-    let imageData: NSData
-    let latitude: Double
-    let longitude: Double
+    let imageurl: String
+    let latitude: Double?
+    let longitude: Double?
+    let startDate: Date
     
     let nameKey = "name"
-    let imagedataKey = "imagedata"
+    let imageurlKey = "imageurl"
     let latitudeKey = "latitude"
     let longitudeKey = "longitude"
+    let startDateKey = "startDate"
     
-    init(name: String, imageData: NSData, latitude: Double, longitude: Double) {
+    init(name: String, imageurl: String, latitude: Double?, longitude: Double?, startDate: Date) {
         self.name = name
-        self.imageData = imageData
+        self.imageurl = imageurl
         self.latitude = latitude
         self.longitude = longitude
+        self.startDate = startDate
     }
     
     required init?(coder aDecoder: NSCoder) {
         name = aDecoder.decodeObject(forKey: nameKey) as! String
-        imageData = aDecoder.decodeObject(forKey: imagedataKey) as! NSData
-        latitude = aDecoder.decodeObject(forKey: latitudeKey) as! Double
-        longitude = aDecoder.decodeObject(forKey: latitudeKey) as! Double
+        imageurl = aDecoder.decodeObject(forKey: imageurlKey) as! String
+        latitude = aDecoder.decodeObject(forKey: latitudeKey) as? Double
+        longitude = aDecoder.decodeObject(forKey: latitudeKey) as? Double
+        startDate = aDecoder.decodeObject(forKey: startDateKey) as! Date
     }
 }
 
 extension Favorite: NSCoding {
     func encode(with aCoder: NSCoder) {
         aCoder.encode(name, forKey: nameKey)
-        aCoder.encode(imageData, forKey: imagedataKey)
+        aCoder.encode(imageurl, forKey: imageurlKey)
         aCoder.encode(latitude, forKey: latitudeKey)
         aCoder.encode(longitude, forKey: longitudeKey)
+        aCoder.encode(startDate, forKey: startDateKey)
     }
 }

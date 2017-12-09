@@ -16,16 +16,24 @@ class PhotoDetailsViewController: UIViewController {
     @IBOutlet weak var ExtractText: UITextView!
     @IBOutlet weak var favoriteButton: UIButton!
     
-    var selected = false
+    var selected = Bool()
     var identifyPhoto = UIImage()
     var identifyText = String()
     var wikiResult = WikipediaResult(title: "", extract: "")
     let findWiki = WikipediaAPIManager()
     let dataManager = PersistanceManager()
     let locationFinder = LocationFinder()
+    var latitude = Double()
+    var longitude = Double()
+    var textIndex = Int()
     
     override func viewWillAppear(_ animated: Bool) {
         ReceivedText.text = identifyText.capitalized
+        if selected {
+            self.favoriteButton.setImage(UIImage(named: "red_heart"), for: .normal)
+        } else {
+            self.favoriteButton.setImage(UIImage(named: "blank_heart"), for: .normal)
+        }
     }
     
     override func viewDidLoad() {
@@ -33,9 +41,11 @@ class PhotoDetailsViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         findWiki.delegate = self
+        locationFinder.delegate = self
         
         MBProgressHUD.showAdded(to: self.view, animated: true)
         findWiki.fetchWiki(identifyText: identifyText)
+        locationFinder.findLocation()
     }
 
     @IBAction func favoriteButtonPressed(_ sender: UIButton) {
@@ -45,7 +55,8 @@ class PhotoDetailsViewController: UIViewController {
                 //delete from favorite list
                 self.favoriteButton.setImage(UIImage(named: "blank_heart"), for: .normal)
                 self.selected = false
-                //TODO
+                self.dataManager.removeFavorite(self.textIndex)
+                
             })
             let noAction = UIAlertAction(title: "No", style: .default, handler: nil)
             alert.addAction(yesAction)
@@ -54,9 +65,23 @@ class PhotoDetailsViewController: UIViewController {
         } else {
             let alert = UIAlertController (title: "Do you want to add it to your list", message: "", preferredStyle: .alert)
             let yesAction = UIAlertAction(title: "Yes", style: .default, handler: { (action) in
-                //find location
-                MBProgressHUD.showAdded(to: self.view, animated: true)
-                self.locationFinder.findLocation()
+                //save data
+                self.favoriteButton.setImage(UIImage(named: "red_heart"), for: .normal)
+                self.selected = true
+                //Save name
+                let title = self.identifyText
+                //Save imageData
+                let image = self.identifyPhoto
+                let imageData: NSData = UIImageJPEGRepresentation(image, 0.3)! as NSData
+                let imageuuid = NSUUID().uuidString
+                let fileManager = FileManager.default
+                let imagepath = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent(imageuuid)
+                fileManager.createFile(atPath: imagepath, contents: imageData as Data, attributes: nil)
+                //Save date
+                let date = Date()
+                let favorite = Favorite(name: title, imageurl: imagepath, latitude: self.latitude, longitude: self.longitude, startDate: date)
+                self.dataManager.saveFavorite(favorite)
+
             })
             let noAction = UIAlertAction(title: "No", style: .default, handler: nil)
             alert.addAction(yesAction)
@@ -98,24 +123,8 @@ class PhotoDetailsViewController: UIViewController {
 //LocationFinderDelegate protocol
 extension PhotoDetailsViewController: LocationFinderDelegate {
     func locationFound(latitude: Double, longitude: Double) {
-        print(longitude)
-        print(latitude)
-        //save to favorite list
-        self.favoriteButton.setImage(UIImage(named: "red_heart"), for: .normal)
-        self.selected = true
-        //Save name
-        let title = self.identifyText
-        //Save imageData
-        let image = self.identifyPhoto
-        let imageData: NSData = UIImageJPEGRepresentation(image, 0.3)! as NSData
-        //let imageuuid = NSUUID().uuidString
-        
-        let favorite = Favorite(name: title, imageData: imageData, latitude: latitude, longitude: longitude)
-        self.dataManager.saveFavorite(favorite)
-        print(favorite)
-        DispatchQueue.main.async {
-            MBProgressHUD.hide(for: self.view, animated: true)
-        }
+        self.latitude = latitude
+        self.longitude = longitude
     }
     
     func locationNotFound(reason: LocationFinder.FailureReason) {
