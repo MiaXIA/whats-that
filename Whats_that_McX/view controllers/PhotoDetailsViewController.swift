@@ -26,6 +26,7 @@ class PhotoDetailsViewController: UIViewController {
     var latitude = Double()
     var longitude = Double()
     var textIndex = Int()
+    var imageurltodelete = String()
     
     override func viewWillAppear(_ animated: Bool) {
         ReceivedText.text = identifyText.capitalized
@@ -56,6 +57,12 @@ class PhotoDetailsViewController: UIViewController {
                 self.favoriteButton.setImage(UIImage(named: "blank_heart"), for: .normal)
                 self.selected = false
                 self.dataManager.removeFavorite(self.textIndex)
+                let fileManager = FileManager.default
+                if fileManager.fileExists(atPath: self.imageurltodelete) {
+                    try! fileManager.removeItem(atPath: self.imageurltodelete)
+                } else {
+                    print("Nothing to delete!")
+                }
                 
             })
             let noAction = UIAlertAction(title: "No", style: .default, handler: nil)

@@ -66,5 +66,6 @@ class FavoriteListTableViewController: UITableViewController {
         }
         photoDetailView.selected = true
         photoDetailView.textIndex = textIndex!
+        photoDetailView.imageurltodelete = imageurl
     }
 }

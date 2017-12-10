@@ -18,6 +18,7 @@
 		3B87AC7F1FCCC55000FEF23C /* GoogleVisionAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B87AC7E1FCCC55000FEF23C /* GoogleVisionAPIManager.swift */; };
 		3B87AC811FCCC56000FEF23C /* WikipediaAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B87AC801FCCC56000FEF23C /* WikipediaAPIManager.swift */; };
 		3B87AC831FCCC56F00FEF23C /* PersistanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B87AC821FCCC56F00FEF23C /* PersistanceManager.swift */; };
+		3B96FAF11FDDD886009F07B4 /* MapMarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B96FAF01FDDD886009F07B4 /* MapMarksViewController.swift */; };
 		3BABD9101FD4EB86000B2621 /* Twitter.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3BABD90F1FD4EB86000B2621 /* Twitter.plist */; };
 		3BC4054A1FBFB2E5001A7CC7 /* PhotoIdentificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC405491FBFB2E5001A7CC7 /* PhotoIdentificationViewController.swift */; };
 		3BC4054C1FBFB2FA001A7CC7 /* PhotoDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC4054B1FBFB2FA001A7CC7 /* PhotoDetailsViewController.swift */; };
@@ -42,6 +43,7 @@
 		3B87AC7E1FCCC55000FEF23C /* GoogleVisionAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleVisionAPIManager.swift; sourceTree = "<group>"; };
 		3B87AC801FCCC56000FEF23C /* WikipediaAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikipediaAPIManager.swift; sourceTree = "<group>"; };
 		3B87AC821FCCC56F00FEF23C /* PersistanceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistanceManager.swift; sourceTree = "<group>"; };
+		3B96FAF01FDDD886009F07B4 /* MapMarksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapMarksViewController.swift; sourceTree = "<group>"; };
 		3BABD90F1FD4EB86000B2621 /* Twitter.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Twitter.plist; sourceTree = "<group>"; };
 		3BC405491FBFB2E5001A7CC7 /* PhotoIdentificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoIdentificationViewController.swift; sourceTree = "<group>"; };
 		3BC4054B1FBFB2FA001A7CC7 /* PhotoDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailsViewController.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				3BC4054B1FBFB2FA001A7CC7 /* PhotoDetailsViewController.swift */,
 				3BC405511FBFB34F001A7CC7 /* TwitSearchTimelineViewController.swift */,
 				3BE5D9B31FD8B3DF005D32A6 /* FavoriteListTableViewController.swift */,
+				3B96FAF01FDDD886009F07B4 /* MapMarksViewController.swift */,
 			);
 			path = "view controllers";
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 			files = (
 				3BC4054C1FBFB2FA001A7CC7 /* PhotoDetailsViewController.swift in Sources */,
 				3B87AC811FCCC56000FEF23C /* WikipediaAPIManager.swift in Sources */,
+				3B96FAF11FDDD886009F07B4 /* MapMarksViewController.swift in Sources */,
 				3BC405561FBFB375001A7CC7 /* GoogleVisionResult.swift in Sources */,
 				3B87AC831FCCC56F00FEF23C /* PersistanceManager.swift in Sources */,
 				3B6417391FD0A54A00760F74 /* Favorite.swift in Sources */,

@@ -165,7 +165,7 @@
             </objects>
             <point key="canvasLocation" x="1221.5999999999999" y="-255.02248875562222"/>
         </scene>
-        <!--Favorite List Table View Controller-->
+        <!--Favorite List-->
         <scene sceneID="CTM-Qd-TX4">
             <objects>
                 <tableViewController id="QF9-Ox-bvw" customClass="FavoriteListTableViewController" customModule="Whats_that_McX" customModuleProvider="target" sceneMemberID="viewController">
@@ -226,10 +226,41 @@
                             <outlet property="delegate" destination="QF9-Ox-bvw" id="VpF-8i-Wl6"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Favorite List" id="jBu-uS-BTj">
+                        <barButtonItem key="rightBarButtonItem" image="map_mark" id="hte-Yw-ixo">
+                            <variation key="heightClass=regular-widthClass=regular">
+                                <nil key="tintColor"/>
+                            </variation>
+                            <connections>
+                                <segue destination="Mbk-h2-BoE" kind="show" id="pve-aZ-To3"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zea-r3-HwH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1221.5999999999999" y="519.49025487256381"/>
+        </scene>
+        <!--Map Marks-->
+        <scene sceneID="KeC-EN-2dB">
+            <objects>
+                <viewController title="Map Marks" id="Mbk-h2-BoE" customClass="MapMarksViewController" customModule="Whats_that_McX" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wgd-HC-guY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="luN-JY-YPe">
+                                <rect key="frame" x="0.0" y="77" width="375" height="590"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Ve8-tZ-W5V"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0ZD-oK-ian" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2077.5999999999999" y="872.11394302848578"/>
         </scene>
         <!--Detail Information-->
         <scene sceneID="MmY-7I-Rz1">
@@ -375,6 +406,7 @@
         <image name="blank_heart" width="40" height="40"/>
         <image name="camera" width="40" height="40"/>
         <image name="initial" width="928" height="704"/>
+        <image name="map_mark" width="25" height="25"/>
         <image name="photo_library" width="40" height="40"/>
         <image name="twitter" width="40" height="40"/>
         <image name="whats_that" width="512" height="512"/>
