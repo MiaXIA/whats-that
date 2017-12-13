@@ -24,16 +24,16 @@
                                 <rect key="frame" x="60" y="100" width="255" height="467"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What's That?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jnI-d1-8Gb">
-                                        <rect key="frame" x="19.5" y="0.0" width="216" height="117"/>
+                                        <rect key="frame" x="19.5" y="0.0" width="216" height="93.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="38"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="whats_that" translatesAutoresizingMaskIntoConstraints="NO" id="Nzo-wU-RER">
-                                        <rect key="frame" x="0.0" y="117" width="255" height="116.5"/>
+                                        <rect key="frame" x="0.0" y="93.5" width="255" height="93.5"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gbE-k4-eK2">
-                                        <rect key="frame" x="43.5" y="233.5" width="168" height="117"/>
+                                        <rect key="frame" x="43.5" y="187" width="168" height="93"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Identify Image Now">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -43,13 +43,23 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tjd-cO-7mG">
-                                        <rect key="frame" x="53" y="350.5" width="149" height="116.5"/>
+                                        <rect key="frame" x="48.5" y="280" width="158" height="93.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <state key="normal" title="Previous Favorite">
+                                        <state key="normal" title="Previous Favorites">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <segue destination="QF9-Ox-bvw" kind="show" identifier="listSegue" id="CPk-Eq-Zho"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rPp-PM-dRg">
+                                        <rect key="frame" x="79.5" y="373.5" width="96" height="93.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="Map Marks">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="Mbk-h2-BoE" kind="show" id="mcW-ey-ouL"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -163,7 +173,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Fl-DW-7J5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1221.5999999999999" y="-255.02248875562222"/>
+            <point key="canvasLocation" x="1222" y="-806"/>
         </scene>
         <!--Favorite List-->
         <scene sceneID="CTM-Qd-TX4">
@@ -217,7 +227,7 @@
                                     <outlet property="identifyImage" destination="u80-ju-QGq" id="Kj5-Yk-CAy"/>
                                     <outlet property="locationLabel" destination="rqn-zv-myL" id="alC-kc-yhz"/>
                                     <outlet property="titleLabel" destination="c0N-Io-waH" id="qHs-78-geu"/>
-                                    <segue destination="eYJ-MG-eeC" kind="show" id="fe3-b2-w61"/>
+                                    <segue destination="eYJ-MG-eeC" kind="show" identifier="jumpToDetail" id="fe3-b2-w61"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -226,20 +236,11 @@
                             <outlet property="delegate" destination="QF9-Ox-bvw" id="VpF-8i-Wl6"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Favorite List" id="jBu-uS-BTj">
-                        <barButtonItem key="rightBarButtonItem" image="map_mark" id="hte-Yw-ixo">
-                            <variation key="heightClass=regular-widthClass=regular">
-                                <nil key="tintColor"/>
-                            </variation>
-                            <connections>
-                                <segue destination="Mbk-h2-BoE" kind="show" id="pve-aZ-To3"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Favorite List" id="jBu-uS-BTj"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zea-r3-HwH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1221.5999999999999" y="519.49025487256381"/>
+            <point key="canvasLocation" x="1222" y="-54"/>
         </scene>
         <!--Map Marks-->
         <scene sceneID="KeC-EN-2dB">
@@ -249,18 +250,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="luN-JY-YPe">
-                                <rect key="frame" x="0.0" y="77" width="375" height="590"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="luN-JY-YPe">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="luN-JY-YPe" firstAttribute="leading" secondItem="wgd-HC-guY" secondAttribute="leading" id="7p0-Hh-j8N"/>
+                            <constraint firstAttribute="trailing" secondItem="luN-JY-YPe" secondAttribute="trailing" id="fkk-oc-Dne"/>
+                            <constraint firstItem="Ve8-tZ-W5V" firstAttribute="bottom" secondItem="luN-JY-YPe" secondAttribute="bottom" id="j6T-ZC-2fE"/>
+                            <constraint firstItem="luN-JY-YPe" firstAttribute="top" secondItem="Ve8-tZ-W5V" secondAttribute="top" id="mIz-zY-zfL"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Ve8-tZ-W5V"/>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="luN-JY-YPe" id="T6W-Gb-iuD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0ZD-oK-ian" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2077.5999999999999" y="872.11394302848578"/>
+            <point key="canvasLocation" x="1222" y="701"/>
         </scene>
         <!--Detail Information-->
         <scene sceneID="MmY-7I-Rz1">
@@ -355,7 +364,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XEa-GF-g00" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2077.5999999999999" y="139.880059970015"/>
+            <point key="canvasLocation" x="2089" y="-54"/>
         </scene>
         <!--Twit Search Timeline View Controller-->
         <scene sceneID="Nyf-VR-BEh">
@@ -383,7 +392,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QMI-V4-Uwj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2879" y="140"/>
+            <point key="canvasLocation" x="2954" y="-54"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="GTK-n4-jsz">
@@ -406,13 +415,12 @@
         <image name="blank_heart" width="40" height="40"/>
         <image name="camera" width="40" height="40"/>
         <image name="initial" width="928" height="704"/>
-        <image name="map_mark" width="25" height="25"/>
         <image name="photo_library" width="40" height="40"/>
         <image name="twitter" width="40" height="40"/>
         <image name="whats_that" width="512" height="512"/>
         <image name="wikipedia" width="40" height="40"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fe3-b2-w61"/>
+        <segue reference="Ygt-sV-zbo"/>
     </inferredMetricsTieBreakers>
 </document>

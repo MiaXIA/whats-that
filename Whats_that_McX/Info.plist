@@ -2,8 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>App needs to use your photo library to choose a previous photo</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>App needs to use your location to save your favorite with location record</string>
+	<string>App needs to use your location to save your favorite with location record and show your favorites with map marks</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
@@ -25,7 +27,7 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppleMusicUsageDescription</key>
-	<string></string>
+	<string>App needs to use your photo library to choose a previous photo</string>
 	<key>NSCameraUsageDescription</key>
 	<string>App needs to use your camera to capture a photo</string>
 	<key>NSPhotoLibraryUsageDescription</key>

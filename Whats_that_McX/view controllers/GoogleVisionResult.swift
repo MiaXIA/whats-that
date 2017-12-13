@@ -8,6 +8,9 @@
 
 import Foundation
 
+/**
+    App will need the description of the label to show what is identified from the image
+ */
 struct GoogleVisionResult {
     let name: String
     

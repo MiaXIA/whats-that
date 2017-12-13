@@ -8,6 +8,9 @@
 
 import Foundation
 
+/**
+    App will need the wiki response's title and extract to give the user more information about identified label
+ */
 struct WikipediaResult {
     let title: String
     let extract: String

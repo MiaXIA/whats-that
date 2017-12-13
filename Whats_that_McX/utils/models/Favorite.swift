@@ -8,6 +8,10 @@
 
 import Foundation
 
+/**
+    App will save user's favorite identified things
+    with its name, imageurl, latitude, longitude and date
+ */
 class Favorite: NSObject {
     let name: String
     let imageurl: String

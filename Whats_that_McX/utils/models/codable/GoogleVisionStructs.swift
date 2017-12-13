@@ -8,6 +8,14 @@
 
 import Foundation
 
+/**
+    the responses JSON example is found in Google Cloud Platform Documents - Cloud Vision API
+    website: https://cloud.google.com/vision/docs/request
+ 
+    the sturct is generated from the JSON to Code Genderator website
+    website: http://danieltmbr.github.io/JsonCodeGenerator/
+ */
+
 struct Root: Codable {
     let responses: [Responses]
 }

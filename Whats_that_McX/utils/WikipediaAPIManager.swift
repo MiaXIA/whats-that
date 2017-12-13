@@ -8,6 +8,7 @@
 
 import Foundation
 
+//WikipediaAPIManager protocol
 protocol WikiDelegate {
     func wikiFound(wiki:WikipediaResult)
     func wikiNotFound(reason: WikipediaAPIManager.FailureReason)
@@ -15,6 +16,7 @@ protocol WikiDelegate {
 
 class WikipediaAPIManager {
     
+    //failurereason in protocol
     enum FailureReason: String {
         case networkRequestFailed = "Your request failed, please try again."
         case noData = "No wiki data received."
@@ -23,10 +25,21 @@ class WikipediaAPIManager {
     
     var delegate: WikiDelegate?
     
+    /**
+        Use this function to fetch the wiki result from wiki
+     
+        @param the specify identify text string that user selected
+     
+        @return WikipediaResult arrays
+     */
     func fetchWiki(identifyText: String) {
+        //request URL
         var urlComponents = URLComponents(string: "https://en.wikipedia.org/w/api.php")!
+        //replace the space in identify text with _
+        //in order to get the correct result that user wants
         let queryText = identifyText.replacingOccurrences(of: " ", with: "_")
         
+        //wiki api requet attributes and keywords
         //format=json&action=query&prop=extracts&exintro=&explaintext=&titles=tree
         urlComponents.queryItems = [
             URLQueryItem(name: "format", value: "json"),
@@ -37,10 +50,12 @@ class WikipediaAPIManager {
             URLQueryItem(name: "titles", value: queryText)
         ]
         
+        //create request url
         let url = urlComponents.url!
         var request = URLRequest(url:url)
         request.httpMethod = "POST"
         
+        //get the response from wiki api
         let task = URLSession.shared.dataTask(with: request) { (data,response,error) in
             //check for valid response with 200 (success)
             guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
@@ -54,6 +69,7 @@ class WikipediaAPIManager {
                 return
             }
             
+            //standard parsing the JSON data to arrays
             guard let queryJsonObject = wikiJsonObject["query"] as? [String: Any], let pageJsonObject = queryJsonObject["pages"] as? [String: Any] else {
                 self.delegate?.wikiNotFound(reason: .badJSONResponse)
                 return

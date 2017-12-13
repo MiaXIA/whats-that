@@ -12,6 +12,10 @@ class PersistanceManager {
 
     let favoritesKey = "favorites"
 
+    /**
+        fetch the favorite arrays
+        @return favorite arrays
+    */
     func fetchFavorites() -> [Favorite] {
         let userDefaults = UserDefaults.standard
         
@@ -26,6 +30,10 @@ class PersistanceManager {
         }
     }
 
+    /**
+        save the data into Favorite array
+        @param an array of favorite (including name, imageurl, latitude, longitude, date)
+    */
     func saveFavorite(_ favorite: Favorite) {
         let userDefaults = UserDefaults.standard
         
@@ -37,6 +45,10 @@ class PersistanceManager {
         userDefaults.set(data, forKey: favoritesKey)
     }
     
+    /**
+        remove the data from persistance memory
+        @param the index number Integer
+     */
     func removeFavorite(_ index: Int) {
         let userDefaults = UserDefaults.standard
         var favorites = fetchFavorites()

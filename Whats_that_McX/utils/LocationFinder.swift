@@ -9,6 +9,7 @@
 import Foundation
 import CoreLocation
 
+//LocationFinder protocol
 protocol LocationFinderDelegate {
     func locationFound(latitude: Double, longitude: Double)
     func locationNotFound(reason: LocationFinder.FailureReason)
@@ -16,18 +17,22 @@ protocol LocationFinderDelegate {
 
 class LocationFinder: NSObject {
     
+    //failure reason in protocol
     enum FailureReason: String {
         case noPermission = "Location permission not available"
         case timeout = "It took too long to find your location"
         case error = "Error finding location"
     }
     
+    //call for CLLocationManager
     let locationManager = CLLocationManager()
     
     var delegate: LocationFinderDelegate?
     
+    //call for timer
     var timer = Timer()
     
+    //initialization
     override init() {
         super.init()
         
@@ -35,6 +40,9 @@ class LocationFinder: NSObject {
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
     }
     
+    /**
+        start the timer
+     */
     func startTimer() {
         cancelTimer()
         
@@ -45,10 +53,17 @@ class LocationFinder: NSObject {
         })
     }
     
+    /**
+        stop the timer
+     */
     func cancelTimer() {
         timer.invalidate()
     }
     
+    /**
+        check the authorization status and find the location
+        @return request authorization or return the location information
+     */
     func findLocation() {
         let status = CLLocationManager.authorizationStatus()
         
@@ -67,17 +82,18 @@ class LocationFinder: NSObject {
     }
 }
 
+//LocationFinder CLLocationManager Delegate
 extension LocationFinder: CLLocationManagerDelegate {
+    
+    //if find the location
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        
         cancelTimer()
-        
         manager.stopUpdatingLocation()
-        
         let location = locations.first!
         delegate?.locationFound(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
     }
     
+    //if the aurhorization has changed
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if status == .authorizedWhenInUse {
             startTimer()
@@ -88,9 +104,9 @@ extension LocationFinder: CLLocationManagerDelegate {
         }
     }
     
+    //if failure when finding the location
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         cancelTimer()
-        
         print(error.localizedDescription)
         delegate?.locationNotFound(reason: .error)
     }
